@@ -1,10 +1,25 @@
-@import "utils/libs";
 @import "utils/vars";
 @import "utils/mixins";
 @import "utils/fonts";
 @import "utils/reset";
 
+html {
+    // font-family: $mainFont;
+    line-height: $mainLineHeight;
+    font-weight: $mainFontWeight;
+    font-size: $mainFontSize;
+    color: $mainFontColor;
+}
 
+.container {
+    position: relative;
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.section {
+}
 
 // Modules
 // @import "modules/my-module";

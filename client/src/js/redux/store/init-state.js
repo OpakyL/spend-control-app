@@ -1,1 +1,1 @@
-//init state
+export const initialState = {};
