@@ -1,0 +1,56 @@
+.header {
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+    width: 10%;
+    background-color: rgba($mainBlackColor, 0.85);
+
+    @media screen and (max-width: $desktopWidth) {
+        width: 15%;
+    }
+
+    &__link {
+        border-radius: 50%;
+        border: 3px solid $mainOrangeColor;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: rem(100);
+        height: rem(100);
+        background-color: $mainWhiteColor;
+        transition: border-color 0.3s;
+
+        &:hover {
+            border-color: $mainRedColor;
+        }
+
+        &:active {
+            background-color: $mainGrayColor;
+        }
+    }
+}
+
+@media screen and (max-width: $smDesktopWidth) {
+    .header {
+        &__link {
+            img {
+                width: 30px;
+                height: 30px;
+            }
+
+            width: rem(90);
+            height: rem(90);
+        }
+    }
+}
+
+@media screen and (max-width: $tableWidth) {
+    .header {
+        display: none;
+    }
+}

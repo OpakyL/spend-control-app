@@ -6,25 +6,39 @@ import Chart from "../app/pages/chart";
 import Earnings from "../app/pages/earnings";
 import Expenses from "../app/pages/expenses";
 
-export const useRoutes = () => {
+export const useRoutes = (isAuthenticated) => {
+    if (isAuthenticated) {
+        return (
+            <Switch>
+                <Route path="/earnings">
+                    <Earnings />
+                </Route>
+                <Route path="/expenses">
+                    <Expenses />
+                </Route>
+                <Route path="/chart">
+                    <Chart />
+                </Route>
+                <Route path="/" exact={true}>
+                    <About />
+                </Route>
+                <Route path="/logoff">
+                    <Auth />
+                </Route>
+                <Redirect to="/" />
+            </Switch>
+        );
+    }
+
     return (
         <Switch>
-            <Route path="/earnings">
-                <Earnings />
-            </Route>
-            <Route path="/expenses">
-                <Expenses />
-            </Route>
-            <Route path="/chart">
-                <Chart />
-            </Route>
             <Route path="/" exact={true}>
                 <About />
             </Route>
             <Route path="/auth">
                 <Auth />
             </Route>
-            <Redirect to="/" />
+            <Redirect to="/auth" />
         </Switch>
     );
 };

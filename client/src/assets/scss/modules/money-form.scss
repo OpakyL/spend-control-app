@@ -1,0 +1,43 @@
+.money-form {
+    &__buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 25px;
+    }
+
+    &__inputs {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 25px;
+    }
+
+    &__table {
+        width: 100%;
+        border-collapse: collapse;
+        border: 2px solid $mainWhiteColor;
+
+        td {
+            padding: 5px;
+            border: 2px solid $mainWhiteColor;
+        }
+
+        th {
+            padding: 5px;
+            background-color: $mainWhiteColor;
+            border-right: 2px solid $mainBlackColor;
+            color: $mainBlackColor;
+
+            &:last-child {
+                border-right: 2px solid $mainWhiteColor;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $tableWidth) {
+    .money-form {
+        &__inputs {
+            flex-direction: column;
+        }
+    }
+}

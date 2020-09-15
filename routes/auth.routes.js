@@ -57,7 +57,7 @@ router.post(
     "/login",
     [
         check("nickname", "Введите имя пользователя").exists(),
-        check("password", "Введите пароль").exists,
+        check("password", "Введите пароль").exists(),
     ],
     async (req, res) => {
         try {
@@ -69,7 +69,6 @@ router.post(
                     message: "Некорректные данные при входе в систему",
                 });
             }
-
             const { nickname, password } = req.body;
 
             const user = await User.findOne({ nickname });

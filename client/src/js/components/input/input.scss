@@ -1,0 +1,60 @@
+.input {
+    border-radius: 15px;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 3pt 2pt $mainOrangeColor;
+    }
+
+    &-auth {
+        margin-bottom: 30px;
+        width: 50%;
+        height: 50px;
+    }
+
+    &-money {
+        min-width: 38%;
+    }
+}
+
+@media screen and (max-width: $desktopWidth) {
+    .input {
+        width: 70%;
+
+        &-money {
+            width: 25%;
+
+            font-size: 18px;
+        }
+    }
+}
+
+@media screen and (max-width: $smDesktopWidth) {
+    .input {
+        &-money {
+            font-size: 15px;
+        }
+    }
+}
+
+@media screen and (max-width: $tableWidth) {
+    .input {
+        width: 85%;
+
+        &-money {
+            font-size: 16px;
+        }
+
+        &-large {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+    }
+}
+@media screen and (max-width: $phoneWidth) {
+    .input {
+        width: 100%;
+    }
+}

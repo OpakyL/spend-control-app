@@ -55,6 +55,16 @@ module.exports = {
                         loader: "sass-loader",
                         options: { sourceMap: true },
                     },
+                    {
+                        loader: "sass-resources-loader",
+                        options: {
+                            sourceMap: true,
+                            resources: [
+                                `${PATHS.src}/assets/scss/utils/mixins.scss`,
+                                `${PATHS.src}/assets/scss/utils/vars.scss`,
+                            ],
+                        },
+                    },
                 ],
             },
             {

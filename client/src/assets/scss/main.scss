@@ -8,18 +8,54 @@ html {
     line-height: $mainLineHeight;
     font-weight: $mainFontWeight;
     font-size: $mainFontSize;
-    color: $mainFontColor;
+    color: $mainWhiteColor;
+
+    @media screen and (max-width: $desktopWidth) {
+        font-size: 19px;
+    }
+    @media screen and (max-width: $smDesktopWidth) {
+        font-size: 18px;
+    }
+    @media screen and (max-width: $tableWidth) {
+        font-size: 16px;
+    }
+
+    background: url("../img/background.jpg") 50% / cover fixed;
 }
 
 .container {
     position: relative;
     display: flex;
+    justify-content: space-around;
     width: 100%;
     min-height: 100vh;
+    @media screen and (max-width: $tableWidth) {
+        display: block;
+    }
 }
 
 .section {
+    background-color: $mainBlackColor;
+    border: 3px solid $mainOrangeColor;
+    border-top-color: none;
+    border-bottom-color: none;
+    padding: 30px 40px 30px 40px;
+    width: 80%;
+    min-height: 100vh;
+
+    @media screen and (max-width: $desktopWidth) {
+        width: 70%;
+    }
+    @media screen and (max-width: $tableWidth) {
+        padding-left: 60px;
+        width: 100%;
+    }
 }
 
 // Modules
 // @import "modules/my-module";
+@import "modules/header";
+@import "modules/auth";
+@import "modules/burger";
+@import "modules/menu";
+@import "modules/money-form";

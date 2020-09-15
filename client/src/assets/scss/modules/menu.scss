@@ -1,0 +1,47 @@
+.menu {
+    height: 100%;
+    width: 320px;
+    position: absolute;
+    background-color: rgba($mainBlackColor, 0.98);
+    border-right: 5px solid $mainOrangeColor;
+    top: 0;
+    left: 0;
+    transition: left 1s;
+
+    &__wrapper {
+        padding: 55px 0;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    &__link {
+        cursor: pointer;
+        text-align: center;
+        line-height: 50px;
+        background-color: $mainBlackColor;
+        width: 200px;
+        height: 50px;
+        border-radius: 15px;
+        border: 1px solid $mainOrangeColor;
+
+        a {
+            font-size: 25px;
+            color: $mainWhiteColor;
+        }
+
+        &:hover {
+            a {
+                color: $mainOrangeColor;
+            }
+        }
+    }
+
+    &_closed {
+        left: -320px;
+    }
+}

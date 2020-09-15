@@ -1,7 +1,12 @@
 import React from "react";
+import MoneyForm from "../money-form/";
 
 const expenses = () => {
-    return <div>expenses</div>;
+    return (
+        <div className="section">
+            <MoneyForm />
+        </div>
+    );
 };
 
 export default expenses;
