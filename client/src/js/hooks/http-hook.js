@@ -3,7 +3,9 @@ import { useState, useCallback } from "react";
 export const useHttp = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
-    const urlBase = "http://localhost:5000";
+
+    const __urlBase = "http://localhost:5000";
+
     const request = useCallback(
         async (url = "", method = "GET", body = null, headers = {}) => {
             setLoading(true);
@@ -13,13 +15,12 @@ export const useHttp = () => {
                     headers["Content-Type"] = "application/json";
                 }
 
-                const response = await fetch(urlBase + url, {
+                const response = await fetch(__urlBase + url, {
                     method,
                     body,
                     headers,
                 });
                 const data = await response.json();
-
 
                 if (!response.ok) {
                     throw new Error(data.message || "Что-то пошло не так");

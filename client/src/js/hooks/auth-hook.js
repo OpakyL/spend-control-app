@@ -1,30 +1,32 @@
-import { useState, useCallback, useEffect } from "react";
+import { useCallback, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { userLoggedIn, resetState } from "../redux/actions/actions";
 
 const storageName = "userData";
 
 export const useAuth = () => {
-    const [token, setToken] = useState(null);
-    const [userId, setUserId] = useState(null);
-
-    const login = useCallback((jwtToken, id) => {
-        setToken(jwtToken);
-        setUserId(id);
-
-        localStorage.setItem(storageName, JSON.stringify({ userId, token }));
-    }, []);
-    const logout = useCallback(() => {
-        setToken(null);
-        setUserId(null);
-        localStorage.removeItem(storageName);
-    }, []);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const data = JSON.parse(localStorage.getItem(storageName));
 
         if (data && data.token) {
-            login(data.token, data.userId);
+            const { userId, token } = data;
+            dispatch(userLoggedIn({ userId, token }));
         }
     }, [login]);
 
-    return { login, logout, token, userId };
+    const login = useCallback((data) => {
+        const { token, userId } = data;
+
+        dispatch(userLoggedIn({ userId, token }));
+        localStorage.setItem(storageName, JSON.stringify({ userId, token }));
+    }, []);
+
+    const logout = useCallback(() => {
+        dispatch(resetState());
+        localStorage.removeItem(storageName);
+    }, []);
+
+    return { login, logout };
 };

@@ -5,6 +5,7 @@ import Auth from "../app/pages/auth";
 import Chart from "../app/pages/chart";
 import Earnings from "../app/pages/earnings";
 import Expenses from "../app/pages/expenses";
+import LogOut from "../app/pages/log-off";
 
 export const useRoutes = (isAuthenticated) => {
     if (isAuthenticated) {
@@ -22,8 +23,8 @@ export const useRoutes = (isAuthenticated) => {
                 <Route path="/" exact={true}>
                     <About />
                 </Route>
-                <Route path="/logoff">
-                    <Auth />
+                <Route path="/logout">
+                    <LogOut />
                 </Route>
                 <Redirect to="/" />
             </Switch>

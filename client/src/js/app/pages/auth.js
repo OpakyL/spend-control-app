@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import Input from "../../components/input";
 import Button from "../../components/button/button";
 import { useHttp } from "../../hooks/http-hook";
+import { useAuth } from "../../hooks/auth-hook";
 
 const Auth = () => {
     const { loading, error, request, clearError } = useHttp();
+    const { login } = useAuth();
     const [form, setForm] = useState({
         nickname: "",
         password: "",
@@ -27,7 +29,7 @@ const Auth = () => {
             const data = await request("/api/auth/login", "POST", {
                 ...form,
             });
-            console.log(data);
+            login(data);
         } catch (e) {}
     };
 

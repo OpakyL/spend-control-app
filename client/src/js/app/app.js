@@ -1,18 +1,18 @@
 import React from "react";
-import { useAuth } from "../hooks/auth-hook";
+import { useSelector } from "react-redux";
 import { useRoutes } from "../hooks/routes-hook";
 import Header from "./header";
 import LogButton from "./log-button";
 import Menu from "./menu";
 
 const App = () => {
-    const { token, login, logout, userId } = useAuth();
+    const isLogged = useSelector((state) => state.auth.isLogged);
 
     return (
         <div className="container">
             <Menu />
             <Header />
-            {useRoutes(false)}
+            {useRoutes(isLogged)}
             <LogButton />
         </div>
     );
