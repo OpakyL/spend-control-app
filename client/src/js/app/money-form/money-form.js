@@ -13,13 +13,12 @@ const MoneyForm = ({
 }) => {
     const [isUpdating, setIsUpdating] = useState(false);
     const [filter, setFilter] = useState("day");
-    const [filteredTable, setFilteredTable] = useState(table);
+    const [filteredTable, setFilteredTable] = useState([]);
 
     useEffect(() => {
-        console.log(filter);
         const today = new Date();
         const dd = String(today.getDate()).padStart(2, "0");
-        const mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+        const mm = String(today.getMonth() + 1).padStart(2, "0");
         const yyyy = today.getFullYear().toString();
         switch (filter) {
             case "day":
@@ -141,14 +140,16 @@ const MoneyForm = ({
                         <tr key={el._id}>
                             <td>{el.money}</td>
                             <td>{el.reason}</td>
-                            <td>
-                                <Button id={el._id} onClick={removeHandler}>
-                                    Удалить
-                                </Button>
-                                <Button id={el._id} onClick={onUpdateClick}>
-                                    Редактировать
-                                </Button>
-                            </td>
+                            {(filter === "day" && (
+                                <td>
+                                    <Button id={el._id} onClick={removeHandler}>
+                                        Удалить
+                                    </Button>
+                                    <Button id={el._id} onClick={onUpdateClick}>
+                                        Редактировать
+                                    </Button>
+                                </td>
+                            )) || <td>{el.date}</td>}
                         </tr>
                     ))}
                 </tbody>
