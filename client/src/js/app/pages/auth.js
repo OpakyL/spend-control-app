@@ -24,12 +24,16 @@ const Auth = () => {
         setForm({ ...form, [event.target.name]: event.target.value });
     };
 
+    const fetchUser = async () => {
+        const data = await request("/api/auth/login", "POST", {
+            ...form,
+        });
+        login(data);
+    };
+
     const loginHandler = async () => {
         try {
-            const data = await request("/api/auth/login", "POST", {
-                ...form,
-            });
-            login(data);
+            fetchUser();
         } catch (e) {}
     };
 
@@ -38,6 +42,7 @@ const Auth = () => {
             await request("/api/auth/register", "POST", {
                 ...form,
             });
+            fetchUser();
         } catch (e) {}
     };
 

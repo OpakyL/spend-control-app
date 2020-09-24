@@ -5,11 +5,7 @@ export const initialState = {
         isLogged: false,
     },
     data: {
-        nickname: null,
         earnings: [],
         expenses: [],
-    },
-    timer: {
-        time: "",
     },
 };

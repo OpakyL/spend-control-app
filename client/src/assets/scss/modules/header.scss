@@ -27,6 +27,7 @@
 
         &:hover {
             border-color: $mainRedColor;
+            box-shadow: 0 0 3pt 2pt $mainOrangeColor;
         }
 
         &:active {

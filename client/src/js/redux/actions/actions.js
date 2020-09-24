@@ -13,26 +13,74 @@ export const userLoggedIn = (payload) => {
     };
 };
 
+export const EARNINGS_FETCHED = "EARNINGS_FETCHED";
+export const earningsFetched = (payload) => {
+    return {
+        type: EARNINGS_FETCHED,
+        payload,
+    };
+};
+
+export const EARNING_ADDED = "EARNING_ADDED";
+export const earningAdded = (payload) => {
+    return {
+        type: EARNING_ADDED,
+        payload,
+    };
+};
+
+export const EARNING_REMOVED = "EARNING_REMOVED";
+export const earningRemoved = (payload) => {
+    return {
+        type: EARNING_REMOVED,
+        payload,
+    };
+};
+
+export const EARNING_UPDATED = "EARNING_UPDATED";
+export const earningUpdated = (payload) => {
+    return {
+        type: EARNING_UPDATED,
+        payload,
+    };
+};
+
+export const EXPENSES_FETCHED = "EXPENSES_FETCHED";
+export const expensesFetched = (payload) => {
+    return {
+        type: EXPENSES_FETCHED,
+        payload,
+    };
+};
+
+export const EXPENSE_ADDED = "EXPENSE_ADDED";
+export const expenseAdded = (payload) => {
+    return {
+        type: EXPENSE_ADDED,
+        payload,
+    };
+};
+
+export const EXPENSE_REMOVED = "EXPENSE_REMOVED";
+export const expenseRemoved = (payload) => {
+    return {
+        type: EXPENSE_REMOVED,
+        payload,
+    };
+};
+
+export const EXPENSE_UPDATED = "EXPENSE_UPDATED";
+export const expenseUpdated = (payload) => {
+    return {
+        type: EXPENSE_UPDATED,
+        payload,
+    };
+};
+
 export const SET_TIMER_COUNT = "SET_TIMER_COUNT";
 export const setTimerCount = (time) => {
     return {
         type: SET_TIMER_COUNT,
         payload: time,
-    };
-};
-
-export const MONEY_CHANGED = "MONEY_CHANGED";
-export const moneyChanged = (value) => {
-    return {
-        type: MONEY_CHANGED,
-        payload: value,
-    };
-};
-
-export const REASON_CHANGED = "REASON_CHANGED";
-export const reasonChanged = (value) => {
-    return {
-        type: REASON_CHANGED,
-        payload: value,
     };
 };
